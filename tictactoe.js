@@ -26,10 +26,19 @@ xButton.addEventListener("click", () => startGame("x"));
 oButton.addEventListener("click", () => startGame("o"));
 
 restartButton.addEventListener("click", () => {
+    // Clear all cells
+    cells.forEach((cell) => {
+        cell.classList.remove("x", "o");
+    });
+
+    // Hide the winning message
+    message.classList.remove("show");
+
+    // Reset the selection screen for symbol choice
     document.querySelector(".selection").classList.remove("hidden");
     board.classList.add("hidden");
-    message.classList.remove("show");
 });
+
 
 function startGame(choice) {
     humanClass = choice;
@@ -123,4 +132,23 @@ function computerMove() {
             setBoardHoverClass();
         }
     }, 500); // Add delay for computer move
+
+    restartButton.addEventListener("click", () => {
+        // Clear all cells
+        cells.forEach((cell) => {
+            cell.classList.remove("x", "o"); // Clear any X or O marks
+            cell.removeEventListener("click", handleClick); // Remove the old event listener
+            cell.addEventListener("click", handleClick, { once: true }); // Reattach the event listener
+        });
+
+        // Hide the winning message
+        message.classList.remove("show");
+
+        // Reset the current turn
+        currentTurn = "x"; // Or retain the last chosen symbol
+
+        // Reset hover effects
+        setBoardHoverClass();
+    });
+
 }

@@ -138,7 +138,7 @@ nav a:hover {
 
 .cell.x::after {
     content: "X";
-    color: red;
+    color: gray;
     font-size: 2rem;
     font-weight: bold;
 }
