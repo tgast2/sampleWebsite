@@ -79,7 +79,6 @@ nav a:hover {
     height: 400px; /* Adjust height as needed */
     overflow: hidden;
     border-radius: 15px;
-    background-color: rgba(0, 0, 0, 0.1); /* Subtle background for contrast */
 }
 
 /* Images in Slideshow */
@@ -91,6 +90,26 @@ nav a:hover {
     opacity: 0; /* Initially hidden */
     transition: opacity 1s ease-in-out; /* Smooth fade effect */
 }
+
+#back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #3498db;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    padding: 10px;
+    cursor: pointer;
+    display: none; /* Hidden by default */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+#back-to-top:hover {
+    background: #2c3e50;
+}
+
 
 footer {
     position: fixed;
