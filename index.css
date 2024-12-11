@@ -8,7 +8,7 @@
 /* Adjust for mobile screens*/
 @media (max-width: 768px) {
     body {
-        flex direction: column;
+        flex-direction: column;
         padding: 10px;
     }
 
