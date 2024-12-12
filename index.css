@@ -69,7 +69,75 @@ nav a {
 }
 
 nav a:hover {
-    background-color: #3498db;
+    background-color: #a9a9a9;
+}
+
+/* Dropdown Styles */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-toggle {
+    /* Style the main dropdown link */
+}
+
+.dropdown-menu {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px); /* Start slightly above */
+    transition: opacity 2s ease, transform 2s ease;
+    background-color: #d3d3d3 ;
+    border-radius: 5px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    padding: 10px;
+    z-index: 10;
+    width: 150px;
+}
+
+.dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0); /* Slide into position */
+}
+
+.dropdown-menu li {
+    opacity: 0;
+    transform: translateY(-10px); /* Start above its final position */
+    transition: opacity 0.8s ease, transform 0.2s ease;
+}
+
+.dropdown:hover .dropdown-menu li {
+    opacity: 1;
+    transform: translateY(0);
+}
+.dropdown-menu li a {
+    display: block;
+    padding: 10px;
+    color: #333; /* Change this to your desired text color */
+    text-decoration: none; /* Remove underline if present */
+    transition: color 0.3s ease; /* Smooth color transition */
+}
+
+/* Text color on hover */
+.dropdown-menu li a:hover {
+    color: #ffffff; /* Change this to the hover text color you want */
+}
+
+/* Stagger effect for items */
+.dropdown-menu li:nth-child(1) {
+    transition-delay: 0.2s;
+}
+.dropdown-menu li:nth-child(2) {
+    transition-delay: 0.5s;
+}
+.dropdown-menu li:nth-child(3) {
+    transition-delay: 0.8s;
 }
 
 /* Slideshow Container */
@@ -217,6 +285,18 @@ footer.visible {
 
     nav a:hover {
         background-color: #3498db;
+    }
+
+    .dropdown-menu {
+        display: none; /* Hidden by default */
+        position: static; /* Ensure it doesn't overlap content */
+        transform: none; /* Reset transform for mobile */
+        opacity: 1; /* Ensure visibility when shown */
+        visibility: visible;
+    }
+
+    .dropdown-menu.show {
+        display: flex; /* Show the menu when toggled */
     }
 
     main {

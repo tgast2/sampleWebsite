@@ -12,10 +12,14 @@
     <nav>
         <ul>
             <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About Me</a></li>
-            <li><a href="family.html">My Family</a></li>
-            <li><a href="pets.html">Our Pets</a></li>
-            <li><a href="hobbies.html">Hobbies</a></li>
+            <li class="dropdown">
+                <a href="about.html" class="dropdown-toggle">About Me</a>
+                <ul class="dropdown-menu">
+                    <li><a href="family.html">My Family</a></li>
+                    <li><a href="pets.html">Our Pets</a></li>
+                    <li><a href="hobbies.html">Hobbies</a></li>
+                </ul>
+            </li>
             <li><a href="resume.html">Resume</a></li>
             <li><a href="contact.html">Contact Info</a></li>
             <li><a href="tictactoe.html">Tic-Tac-Toe</a></li>
@@ -28,7 +32,7 @@
         We love adventures. From camping and riding dirt bikes to going to the beach to play in the water and sand, we're always looking to have a good time together.
         I have raced motocross since the age of 5 and still ride to this day. I can't wait for the day when I can go riding and have my kids riding with me. Aspen already
         is on her way after learning to ride her two-wheeled bike last year, and Oden isn't far behind already. Other things we like to do are go to the playground, go on
-        bike rides, build with legos, and have bonfires and roast marshmallows. As the kids get older, I look foward to making new memories and adding new hobbies to our list
+        bike rides, build with legos, and have bonfires and roast marshmallows. As the kids get older, I look forward to making new memories and adding new hobbies to our list
         of fun things we love to do.
     </p>
     <div class="slideshow-container">
@@ -47,5 +51,6 @@
 <script src="slideshow.js"></script>
 <script src="footer.js"></script>
 <script src="backToTopButton.js"></script>
+<script src="dropdownMenu.js"></script>
 </body>
 </html>
