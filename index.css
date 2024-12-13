@@ -9,6 +9,11 @@ body {
     display: flex;
     font-family: 'Montserrat', sans-serif;
     color: #333;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
 }
 
 /* Main Content */
@@ -38,13 +43,14 @@ main p, p {
 nav {
     width: 250px;
     height: 100vh;
-    background-color: #2c3e50;
+    background: linear-gradient(to top, #2c3e50, #3498db);
     padding: 20px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     position: sticky;
     top: 0;
+    z-index: 100;
 }
 
 nav ul {
@@ -76,10 +82,6 @@ nav a:hover {
 .dropdown {
     position: relative;
     display: inline-block;
-}
-
-.dropdown-toggle {
-    /* Style the main dropdown link */
 }
 
 .dropdown-menu {
@@ -139,24 +141,42 @@ nav a:hover {
 .dropdown-menu li:nth-child(3) {
     transition-delay: 0.8s;
 }
-
-/* Slideshow Container */
+/*
+Slideshow Container
 .slideshow-container {
     position: relative;
-    width: 100%; /* Full width */
-    height: 400px; /* Adjust height as needed */
+    width: 100%;
+    height: 400px;
     overflow: hidden;
     border-radius: 15px;
 }
 
-/* Images in Slideshow */
+ Images in Slideshow
 .slideshow-container img {
-    position: absolute; /* Allow images to stack */
-    width: 100%; /* Ensure images cover the container width */
-    height: 100%; /* Ensure images cover the container height */
-    object-fit: contain; /* Maintain aspect ratio while filling the container */
-    opacity: 0; /* Initially hidden */
-    transition: opacity 1s ease-in-out; /* Smooth fade effect */
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+*/
+.random-fade-container {
+    position: relative;
+    width: 100%; /* Full width of the container */
+    height: 400px; /* Adjust height as needed */
+    overflow: hidden; /* Hide images that move outside the container */
+}
+
+.random-fade-container img {
+    position: absolute; /* Allow free movement within the container */
+    width: 250px; /* Fixed size for images, adjust as needed */
+    height: auto; /* Maintain aspect ratio */
+    opacity: 0; /* Start invisible */
+    transition: opacity 2s ease-in-out, transform 2s ease-in-out; /* Smooth fade and movement */
+    border: 2px solid #ddd; /* Optional: Add border */
+    border-radius: 10px; /* Optional: Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional: Shadow effect */
 }
 
 /* Back to top button */
@@ -226,6 +246,17 @@ nav a:hover {
     display: block;
 }
 
+.grad-pic {
+    display: block; /* Center the image if needed */
+    margin: 20px auto; /* Add space above and below */
+    max-width: 600px;
+    height: 400px;
+    border: 2px solid #ddd; /* Optional: Add a border */
+    border-radius: 10px; /* Optional: Add rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional: Add a shadow */
+}
+
+
 
 footer {
     position: fixed;
@@ -234,7 +265,10 @@ footer {
     right: 0;
     width: 100%;
     height: 50px;
-    background-color: #d3d3d3;
+    background: linear-gradient(to top, #333, transparent);
+    background-size: 200% 200%;
+    background-position: center;
+    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.2);
     color: #ffffff;
     text-align: center;
     display: flex;
@@ -243,6 +277,7 @@ footer {
     opacity: 0;
     pointer-events: none;
     transition: opacity 0.5s ease;
+    z-index: 1;
 }
 footer.visible {
     opacity: 1;
@@ -303,6 +338,15 @@ footer.visible {
         padding: 20px 10px;
         margin-top: 10px;
     }
+
+    .random-fade-container {
+        height: 200px; /* Smaller container for mobile */
+    }
+
+    .random-fade-container img {
+        width: 100px; /* Even smaller image size for phones */
+    }
+
     footer{
         text-align: center;
         padding: 10px;

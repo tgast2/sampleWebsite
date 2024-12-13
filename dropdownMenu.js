@@ -1,19 +1,16 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const dropdown = document.querySelector(".dropdown");
     const dropdownToggle = document.querySelector(".dropdown-toggle");
     const dropdownMenu = document.querySelector(".dropdown-menu");
 
-    // Handle clicks on the dropdown toggle
+    // Toggle dropdown menu on click
     dropdownToggle.addEventListener("click", function (event) {
         event.preventDefault(); // Prevent default link behavior
-
-        // Toggle the 'show' class on the dropdown menu
         dropdownMenu.classList.toggle("show");
     });
 
-    // Close the dropdown menu when clicking outside
+    // Close dropdown menu when clicking outside
     document.addEventListener("click", function (event) {
-        if (!dropdown.contains(event.target)) {
+        if (!dropdownToggle.contains(event.target) && !dropdownMenu.contains(event.target)) {
             dropdownMenu.classList.remove("show");
         }
     });
