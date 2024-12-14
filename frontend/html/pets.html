@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Pets - Tyler Gast</title>
+    <!--<link rel="stylesheet" href="index.css">-->
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/base.css">
+    <link rel="stylesheet" href="../css/navigation.css">
+    <link rel="stylesheet" href="../css/dropdown.css">
+    <!--<link rel="stylesheet" href="css/slideshow.css">-->
+    <link rel="stylesheet" href="../css/pictureFade.css">
+    <link rel="stylesheet" href="../css/tictactoe.css">
+    <link rel="stylesheet" href="../css/footer.css">
+    <link rel="stylesheet" href="../css/mediaQueries.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+<header>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li class="dropdown">
+                <a href="about.html" class="dropdown-toggle">About Me</a>
+                <ul class="dropdown-menu">
+                    <li><a href="family.html">My Family</a></li>
+                    <li><a href="pets.html">Our Pets</a></li>
+                    <li><a href="hobbies.html">Hobbies</a></li>
+                </ul>
+            </li>
+            <li><a href="resume.html">Resume</a></li>
+            <li><a href="contact.html">Contact Info</a></li>
+            <li><a href="tictactoe.html">Tic-Tac-Toe</a></li>
+        </ul>
+    </nav>
+</header>
+<main>
+    <h2>Our Pets</h2>
+    <p>
+        We love our animals, Nova(Left) and Arlo(right) and Gracie! Gracie is our cat, and she is 16 years old. She sticks to herself most of the time except for when
+        her bowl is needing to be filled with food. Growing up, my family always had rescue dogs so when I had my own family I knew that I wanted to rescue
+        dogs as well. We rescued both of our dogs from the Clark County Humane Society. We got Nova in April 2023 as a little puppy, and she has grown to be
+        little bigger than expected. But that's okay, we love our big girl. We then got Arlo earlier this year in March 2024 as a puppy as well. Opposite to
+        Nova, Arlo has remained relatively the same size as the day we got him. You can find them most of the time cuddled together on the couch or chasing each-other
+        none stop around the backyard.
+    </p>
+    <div class="random-fade-container">
+        <img src="../images/petsPic1.jpg" alt="Photo 1" class="content-image">
+        <img src="../images/petsPic2.jpg" alt="Photo 2" class="content-image">
+        <img src="../images/petsPic3.jpg" alt="Photo 3" class="content-image">
+        <img src="../images/petsPic4.jpg" alt="Photo 4" class="content-image">
+    </div>
+</main>
+<button id="back-to-top" onclick="scrollToTop()">↑</button>
+<footer>
+    <p>© 2024 | Tyler Gast | Web Developer</p>
+</footer>
+<script src="../javaScript/slideshow.js"></script>
+<script src="../javaScript/footer.js"></script>
+<script src="../javaScript/backToTopButton.js"></script>
+<script src="../javaScript/dropdownMenu.js"></script>
+</body>
+</html>
