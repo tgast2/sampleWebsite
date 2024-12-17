@@ -11,7 +11,7 @@ app.use(cors());
 const db = mysql.createConnection({
     host: 'localhost',
     user: 'root',
-    password: 'Aspen2019!', // Use your MySQL root password
+    password: 'Aspen2019!',
     database: 'tictactoe'
 });
 
@@ -24,23 +24,47 @@ db.connect(err => {
 });
 
 // API to fetch game statistics
-app.get('/api/statistics', (req, res) => {
-    const query = 'SELECT total_games, user_wins, computer_wins FROM game_statistics';
+app.get('/api/gamestats', (req, res) => {
+    const query = `
+        SELECT totalGames, userWins, computerWins
+        FROM gamestats
+        WHERE id = 1
+    `;
     db.query(query, (err, results) => {
         if (err) {
-            console.error(err);
-            res.status(500).send('Database error');
+            console.error('Database error:', err);
+            res.status(500).send('Failed to fetch game statistics');
         } else {
-            res.json(results[0]);
+            res.json(results[0]); // Send the stats as JSON
         }
     });
 });
 
+
+
+
+app.post('/api/start-game', (req, res) => {
+    const { gameId } = req.body; // Pass the unique gameId from the frontend
+    const query = `
+        INSERT INTO gamestats (gameId, totalGames, userWins, computerWins)
+        VALUES (?, 0, 0, 0)
+    `;
+    db.query(query, [gameId], (err, results) => {
+        if (err) {
+            console.error('Database error:', err);
+            res.status(500).send('Failed to start new game');
+        } else {
+            res.send('New game started successfully');
+        }
+    });
+});
+
+
 // API to record a move
-app.post('/api/move', (req, res) => {
-    const { game_id, move_number, player, slot } = req.body;
-    const query = 'INSERT INTO game_moves (game_id, move_number, player, slot) VALUES (?, ?, ?, ?)';
-    db.query(query, [game_id, move_number, player, slot], (err, results) => {
+app.post('/api/gamemoves', (req, res) => {
+    const { gameId, moveNumber, player, slot } = req.body;
+    const query = 'INSERT INTO gamemoves (gameId, moveNumber, player, slot) VALUES (?, ?, ?, ?)';
+    db.query(query, [gameId, moveNumber, player, slot], (err, results) => {
         if (err) {
             console.error(err);
             res.status(500).send('Database error');
@@ -53,23 +77,31 @@ app.post('/api/move', (req, res) => {
 // API to increment game statistics
 app.post('/api/update-statistics', (req, res) => {
     const { user_won, computer_won } = req.body;
+
+    // Update the single row where id = 1
     const query = `
-        UPDATE game_statistics
-        SET 
-            total_games = total_games + 1,
-            user_wins = user_wins + ?,
-            computer_wins = computer_wins + ?`;
-    db.query(query, [user_won, computer_won], (err, results) => {
+        UPDATE gamestats
+        SET
+            totalGames = totalGames + 1,
+            userWins = userWins + ?,
+            computerWins = computerWins + ?
+        WHERE id = 1
+    `;
+
+    db.query(query, [user_won, computer_won], (err) => {
         if (err) {
-            console.error(err);
-            res.status(500).send('Database error');
+            console.error('Database error:', err);
+            res.status(500).send('Failed to update statistics');
         } else {
             res.send('Statistics updated successfully');
         }
     });
 });
 
-// Start the server
-app.listen(3000, () => {
-    console.log('Server running on http://localhost:3000');
+const PORT = 3000; // Set the port to 3000
+app.listen(PORT, () => {
+    console.log(`Server running on http://localhost:${PORT}`);
 });
+
+
+
