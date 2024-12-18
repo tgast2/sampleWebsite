@@ -1,30 +1,33 @@
-document.addEventListener("DOMContentLoaded", function () {
-    const dropdowns = document.querySelectorAll(".dropdown");
+document.addEventListener('DOMContentLoaded', () => {
+    const dropdownToggles = document.querySelectorAll('.dropdown > a'); // Dropdown toggles
+    const mediaQuery = window.matchMedia('(max-width: 768px)'); // Mobile screen detection
 
-    dropdowns.forEach((dropdown) => {
-        const toggle = dropdown.querySelector(".dropdown-toggle");
-        const menu = dropdown.querySelector(".dropdown-menu");
+    dropdownToggles.forEach((toggle) => {
+        let isDropdownOpen = false; // Track dropdown state for mobile
 
-        // Toggle the dropdown menu on click or touch
-        toggle.addEventListener("click", function (event) {
-            menu.classList.toggle("show");
+        toggle.addEventListener('click', (e) => {
+            const dropdownMenu = toggle.nextElementSibling;
 
-            // Close other open dropdowns
-            dropdowns.forEach((otherDropdown) => {
-                if (otherDropdown !== dropdown) {
-                    otherDropdown.querySelector(".dropdown-menu").classList.remove("show");
+            if (mediaQuery.matches && dropdownMenu) { // Mobile only
+                e.preventDefault(); // Prevent immediate navigation
+                if (!isDropdownOpen) {
+                    dropdownMenu.classList.toggle('show'); // Show dropdown on first click
+                    isDropdownOpen = true;
+                } else {
+                    window.location.href = toggle.href; // Navigate on second click
                 }
-            });
+            }
         });
     });
 
-    // Close dropdown if clicking outside
-    document.addEventListener("click", function (event) {
-        dropdowns.forEach((dropdown) => {
-            const menu = dropdown.querySelector(".dropdown-menu");
-            if (!dropdown.contains(event.target)) {
-                menu.classList.remove("show");
-            }
-        });
+    // Close dropdown when clicking outside
+    document.addEventListener('click', (e) => {
+        const isDropdown = e.target.matches('.dropdown > a, .dropdown-menu, .dropdown-menu *');
+
+        if (!isDropdown) {
+            document.querySelectorAll('.dropdown-menu').forEach((menu) => {
+                menu.classList.remove('show');
+            });
+        }
     });
 });
