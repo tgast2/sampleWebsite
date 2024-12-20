@@ -3,8 +3,16 @@ body, html {
     margin: 0;
     padding: 0;
     width: 100%;
-    height: 100%; /* Ensure the body and html fill the viewport */
-    overflow: hidden; /* Prevent scrolling */
+    height: 100%;
+    display: flex; /* Use flexbox for centering */
+    flex-direction: column; /* Stack elements vertically */
+    justify-content: center; /* Center content vertically */
+    align-items: center; /* Center content horizontally */
+    background-image: url('../images/logo.jpg'); /* Background setup */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    overflow-x: hidden;
 }
 
 /* Background Image */
@@ -31,18 +39,14 @@ body {
 
 /* Main Paragraph */
 #intro-text {
-    font-size: 1.5rem; /* Text size for larger screens */
+    font-size: 2rem;
     color: black;
-    position: absolute;
-    top: 40%; /* Adjust vertical placement */
+    position: absolute; /* Explicitly position within the viewport */
+    top: 90px; /* Lower it further down */
     left: 50%; /* Center horizontally */
-    transform: translate(-50%, -50%); /* Center both horizontally and vertically */
-    text-align: center; /* Center the text */
-    white-space: normal; /* Allow text to wrap to the next line */
-    word-wrap: break-word; /* Ensure long words break */
-    overflow-wrap: break-word; /* Ensure words wrap properly */
-    padding: 0 20px; /* Add padding to prevent text touching edges */
-    max-width: 90%; /* Constrain width to fit within the screen */
+    transform: translateX(-50%); /* Horizontal centering only */
+    text-align: center; /* Ensure the text is centered */
+    white-space: nowrap; /* Force the paragraph to stay on one line */
     opacity: 0; /* Initially hidden */
     animation: fadeIn 2s ease-in forwards;
     animation-delay: 1.5s; /* Trigger after the background fades in */
