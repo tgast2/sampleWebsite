@@ -1,6 +1,10 @@
 @media (max-width: 768px) {
     body {
         flex-direction: column;
+        padding: 10px;
+        text-align: center;
+        overflow: hidden;
+        background-size: contain;
     }
 
     main {
@@ -68,6 +72,37 @@
         text-align: center;
         font-size: 1.2rem;
         margin: 10px auto;
+    }
+
+    /* Adjust content positioning */
+    #content {
+        top: 40%; /* Lower content for better layout on smaller screens */
+        transform: translate(-50%, -50%);
+        padding: 0 15px; /* Add padding to prevent text overflow */
+    }
+
+    /* Adjust main paragraph */
+    #intro-text {
+        font-size: 1.2rem; /* Reduce font size */
+        line-height: 1.4; /* Increase line spacing for readability */
+        word-wrap: break-word; /* Prevent text overflow */
+    }
+
+    /* Center and resize button */
+    #enter-button {
+        position: absolute;
+        bottom: 5%; /* Position near the bottom */
+        left: 50%; /* Center horizontally */
+        transform: translateX(-50%); /* Perfect centering */
+        padding: 15px 30px; /* Add padding for a larger button */
+        font-size: 1.2rem; /* Slightly larger text */
+        color: white; /* Text color */
+        background: linear-gradient(135deg, #3498db, #2c3e50); /* Gradient background */
+        border: none; /* Remove border */
+        border-radius: 10px; /* Round the edges */
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3); /* Add a shadow for depth */
+        cursor: pointer;
+        transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effects */
     }
 
     footer{

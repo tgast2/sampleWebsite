@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="../css/dropdown.css">
     <link rel="stylesheet" href="../css/gradPic.css">
     <link rel="stylesheet" href="../css/footer.css">
+    <link rel="stylesheet" href="../css/backToTopButton.css">
     <link rel="stylesheet" href="../css/mediaQueries.css">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
 </head>
@@ -17,7 +18,7 @@
 <header>
     <nav>
         <ul id="nav-links">
-            <li><a href="../../index.html">Home</a></li>
+            <li><a href="home.html">Home</a></li>
             <li class="dropdown">
                 <a href="../../frontend/html/about.html" class="dropdown-toggle">About Me</a>
                 <ul class="dropdown-menu">
@@ -33,23 +34,31 @@
     </nav>
 </header>
 <main>
-    <h2>About Me</h2>
+    <h2>Who Am I?</h2>
     <p>
-        Hey there! My name is Tyler Gast. I was born August 10th, 1996 making me 28 years old. I grew up near Lake Wissota
-        in Chippewa Falls WI with my mom, dad, and one older brother. Growing up, my brother and I raced motocross almost every
-        weekend from April - October for about 10 years and I still ride to this day. I graduated from Chippewa Falls Senior
-        High school in 2014. After high school I had no real plans of what I wanted to do for a career, but that changed a couple
-        of years ago when I decided to go back to school. Growing up I always felt like I was good with computers and gaming and
-        things like that, so I decided to enroll in the IT - Software Development program offered at Chippewa Valley Technical College.
-        I graduate with honors soon, and I'm excited and eager to start my career in the computer industry.
+        Hey there! My name is Tyler Gast, and I was born on August 10th, 1996, making me 28 years old. I grew
+        up near Lake Wissota in Chippewa Falls, WI, with my mom, dad, and older brother. My brother and I
+        spent about 10 years racing motocross nearly every weekend from April through October, and I still
+        enjoy riding to this day.
+
+        I graduated from Chippewa Falls Senior High School in 2014. At the time, I wasn’t sure what I wanted to
+        do for a career, but that changed a few years ago when I decided to go back to school. I've always felt
+        confident with computers, gaming, and technology, so I enrolled in the IT - Software Development
+        program at Chippewa Valley Technical College.
+
+        I’m proud to say I just graduated with honors, and I’m excited and eager to begin my career in
+        the computer industry.
     </p>
 
     <img src="../images/gradPic.JPG" alt="Graduation Picture" class="grad-pic">
-
 </main>
+
+<button id="back-to-top" onclick="scrollToTop()">↑</button>
 <footer>
     <p>© 2024 | Tyler Gast | Web Developer</p>
 </footer>
+<script src="../javaScript/backToTopButton.js"></script>
+<script src="../javaScript/randomFadePic.js"></script>
 <script src="../javaScript/footer.js"></script>
 <script src="../javaScript/dropdownMenu.js"></script>
 </body>

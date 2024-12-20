@@ -5,7 +5,7 @@ footer {
     right: 0;
     width: 100%;
     height: 50px;
-    background: linear-gradient(to top, #333, transparent);
+    background: linear-gradient(to top, #808080, transparent);
     text-align: center;
     display: flex;
     align-items: center;
@@ -13,7 +13,7 @@ footer {
     opacity: 0;
     pointer-events: none;
     transition: opacity 0.5s ease;
-    z-index: 1;
+    z-index: 1000;
 }
 
 footer.visible {

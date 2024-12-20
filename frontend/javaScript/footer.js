@@ -6,6 +6,8 @@ document.addEventListener("DOMContentLoaded", function () {
         const scrollPosition = window.scrollY + window.innerHeight;
         const pageHeight = document.documentElement.scrollHeight;
 
+        console.log(`Scroll Position: ${scrollPosition}, Page Height: ${pageHeight}`);
+
         if (scrollPosition >= pageHeight) {
             footer.classList.add("visible");
         } else {
