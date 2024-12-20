@@ -22,22 +22,19 @@ const WINNING_COMBINATIONS = [
 let humanClass;
 let computerClass;
 let currentTurn;
-let currentGameId;
 
-// Start Game After User Chooses X or O
+
+
 xButton.addEventListener("click", () => startGame("x"));
 oButton.addEventListener("click", () => startGame("o"));
 
 restartButton.addEventListener("click", () => {
-    // Clear all cells
     cells.forEach((cell) => {
         cell.classList.remove("x", "o");
     });
 
-    // Hide the winning message
     message.classList.remove("show");
 
-    // Reset the selection screen for symbol choice
     document.querySelector(".selection").classList.remove("hidden");
     board.classList.add("hidden");
 });
@@ -45,7 +42,7 @@ restartButton.addEventListener("click", () => {
 function startGame(choice) {
     humanClass = choice;
     computerClass = humanClass === "x" ? "o" : "x";
-    currentTurn = "x"; // X always starts
+    currentTurn = "x";
 
     cells.forEach((cell) => {
         cell.classList.remove("x", "o");
@@ -97,7 +94,6 @@ function endGame(draw) {
     }
     message.classList.add("show");
 
-    // Refresh stats after the game ends
     fetchStats();
 }
 
@@ -135,9 +131,9 @@ function computerMove() {
         (cell) => !cell.classList.contains("x") && !cell.classList.contains("o")
     );
 
-    if (availableCells.length === 0) return; // No moves left
+    if (availableCells.length === 0) return;
 
-    // Simple AI: Pick a random available cell
+
     const randomIndex = Math.floor(Math.random() * availableCells.length);
     const cell = availableCells[randomIndex];
 
@@ -151,24 +147,24 @@ function computerMove() {
             swapTurns();
             setBoardHoverClass();
         }
-    }, 500); // Add delay for computer move
+    }, 500);
 }
 
 restartButton.addEventListener("click", () => {
-    // Clear all cells
+
     cells.forEach((cell) => {
-        cell.classList.remove("x", "o"); // Clear any X or O marks
-        cell.removeEventListener("click", handleClick); // Remove the old event listener
-        cell.addEventListener("click", handleClick, { once: true }); // Reattach the event listener
+        cell.classList.remove("x", "o");
+        cell.removeEventListener("click", handleClick);
+        cell.addEventListener("click", handleClick, { once: true });
     });
 
-    // Hide the winning message
+
     message.classList.remove("show");
 
-    // Reset the current turn
-    currentTurn = "x"; // Or retain the last chosen symbol
 
-    // Reset hover effects
+    currentTurn = "x";
+
+
     setBoardHoverClass();
 });
 
@@ -184,7 +180,7 @@ function updateGameStatistics(userWon, computerWon) {
         .then(response => response.text())
         .then(message => {
             console.log(message);
-            fetchStats(); // Refresh stats after updating
+            fetchStats();
         })
         .catch(error => console.error('Error updating statistics:', error));
 }
@@ -192,7 +188,7 @@ function updateGameStatistics(userWon, computerWon) {
 
 
 function fetchStats() {
-    fetch('http://localhost:3000/api/gamestats') // Correct backend endpoint
+    fetch('http://localhost:3000/api/gamestats')
         .then(response => response.json())
         .then(data => {
             document.getElementById('totalGames').innerText = `Total Games: ${data.totalGames}`;

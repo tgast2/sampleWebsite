@@ -1,20 +1,20 @@
 document.addEventListener('DOMContentLoaded', () => {
-    const dropdownToggles = document.querySelectorAll('.dropdown > a'); // Dropdown toggles
-    const mediaQuery = window.matchMedia('(max-width: 768px)'); // Mobile screen detection
+    const dropdownToggles = document.querySelectorAll('.dropdown > a');
+    const mediaQuery = window.matchMedia('(max-width: 768px)');
 
     dropdownToggles.forEach((toggle) => {
-        let isDropdownOpen = false; // Track dropdown state for mobile
+        let isDropdownOpen = false;
 
         toggle.addEventListener('click', (e) => {
             const dropdownMenu = toggle.nextElementSibling;
 
-            if (mediaQuery.matches && dropdownMenu) { // Mobile only
-                e.preventDefault(); // Prevent immediate navigation
+            if (mediaQuery.matches && dropdownMenu) {
+                e.preventDefault();
                 if (!isDropdownOpen) {
-                    dropdownMenu.classList.toggle('show'); // Show dropdown on first click
+                    dropdownMenu.classList.toggle('show');
                     isDropdownOpen = true;
                 } else {
-                    window.location.href = toggle.href; // Navigate on second click
+                    window.location.href = toggle.href;
                 }
             }
         });

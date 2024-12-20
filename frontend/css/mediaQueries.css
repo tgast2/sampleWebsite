@@ -1,9 +1,10 @@
 @media (max-width: 768px) {
+    /* Base styles */
     body {
         flex-direction: column;
         padding: 10px;
         text-align: center;
-        overflow-xgit: hidden;
+        overflow-x: hidden;
         background-size: contain;
     }
 
@@ -17,6 +18,7 @@
         line-height: 1.6;
     }
 
+    /* Move nav to top of page */
     nav {
         width: 100%;
         height: auto;
@@ -44,6 +46,7 @@
         transition: background-color 0.3s;
     }
 
+    /* Dropdown menu */
     .dropdown-menu.show {
         display: block;
     }
@@ -53,6 +56,7 @@
         visibility: visible;
     }
 
+    /* Picture fade */
     .random-fade-container {
         height: 200px;
     }
@@ -66,6 +70,7 @@
         height: auto;
     }
 
+    /* Download resume link */
     .download-btn {
         display: inline-block;
         width: 100%;
@@ -74,21 +79,21 @@
         margin: 10px auto;
     }
 
-    /* Adjust content positioning */
+    /* Index page */
     #content {
         top: 40%; /* Lower content for better layout on smaller screens */
         transform: translate(-50%, -50%);
         padding: 0 15px; /* Add padding to prevent text overflow */
     }
 
-    /* Adjust main paragraph */
+
     #intro-text {
         font-size: 1.2rem; /* Reduce font size */
         line-height: 1.4; /* Increase line spacing for readability */
         word-wrap: break-word; /* Prevent text overflow */
     }
 
-    /* Center and resize button */
+
     #enter-button {
         position: absolute;
         bottom: 5%; /* Position near the bottom */
@@ -105,6 +110,7 @@
         transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effects */
     }
 
+    /* Footer */
     footer{
         text-align: center;
         padding: 10px;

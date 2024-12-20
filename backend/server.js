@@ -35,7 +35,7 @@ app.get('/api/gamestats', (req, res) => {
             console.error('Database error:', err);
             res.status(500).send('Failed to fetch game statistics');
         } else {
-            res.json(results[0]); // Send the stats as JSON
+            res.json(results[0]);
         }
     });
 });
@@ -44,7 +44,7 @@ app.get('/api/gamestats', (req, res) => {
 
 
 app.post('/api/start-game', (req, res) => {
-    const { gameId } = req.body; // Pass the unique gameId from the frontend
+    const { gameId } = req.body;
     const query = `
         INSERT INTO gamestats (gameId, totalGames, userWins, computerWins)
         VALUES (?, 0, 0, 0)
@@ -78,7 +78,6 @@ app.post('/api/gamemoves', (req, res) => {
 app.post('/api/update-statistics', (req, res) => {
     const { user_won, computer_won } = req.body;
 
-    // Update the single row where id = 1
     const query = `
         UPDATE gamestats
         SET
@@ -98,7 +97,7 @@ app.post('/api/update-statistics', (req, res) => {
     });
 });
 
-const PORT = 3000; // Set the port to 3000
+const PORT = 3000;
 app.listen(PORT, () => {
     console.log(`Server running on http://localhost:${PORT}`);
 });

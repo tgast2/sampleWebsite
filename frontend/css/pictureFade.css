@@ -1,17 +1,17 @@
 .random-fade-container {
     position: relative;
-    width: 100%; /* Full width of the container */
-    height: 400px; /* Adjust height as needed */
-    overflow: hidden; /* Hide images that move outside the container */
+    width: 100%;
+    height: 400px;
+    overflow: hidden;
 }
 
 .random-fade-container img {
-    position: absolute; /* Allow free movement within the container */
-    width: 250px; /* Fixed size for images, adjust as needed */
-    height: auto; /* Maintain aspect ratio */
-    opacity: 0; /* Start invisible */
-    transition: opacity 2s ease-in-out, transform 2s ease-in-out; /* Smooth fade and movement */
-    border: 2px solid #ddd; /* Optional: Add border */
-    border-radius: 10px; /* Optional: Rounded corners */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional: Shadow effect */
+    position: absolute;
+    width: 250px;
+    height: auto;
+    opacity: 0;
+    transition: opacity 2s ease-in-out, transform 2s ease-in-out;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }

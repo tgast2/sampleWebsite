@@ -1,9 +1,9 @@
 .grad-pic {
-    display: block; /* Center the image if needed */
-    margin: 20px auto; /* Add space above and below */
+    display: block;
+    margin: 20px auto;
     max-width: 600px;
     height: 400px;
-    border: 2px solid #ddd; /* Optional: Add a border */
-    border-radius: 10px; /* Optional: Add rounded corners */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional: Add a shadow */
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
