@@ -38,18 +38,17 @@ body {
 
 /* Main Paragraph */
 #intro-text {
-    font-size: 2rem;
+    font-size: 1.5rem; /* Adjust font size for smaller screens */
     color: black;
-    position: absolute;
-    top: 90px;
-    left: 50%;
-    transform: translateX(-50%);
-    text-align: center;
-    white-space: nowrap;
-    opacity: 0;
-    animation: fadeIn 2s ease-in forwards;
-    animation-delay: 1.5s;
+    position: relative; /* Use relative positioning instead of absolute */
+    margin: 0 auto; /* Center horizontally */
+    padding: 10px; /* Add padding for better spacing */
+    max-width: 90%; /* Prevent overflow on smaller screens */
+    text-align: center; /* Center-align the text */
+    line-height: 1.6; /* Improve readability */
+    word-wrap: break-word; /* Ensure text wraps correctly */
 }
+
 
 /* Enter Button */
 #enter-button {
@@ -59,7 +58,7 @@ body {
     padding: 15px 30px;
     font-size: 1.2rem;
     color: white;
-    background-color: #3498db;
+    background: linear-gradient(135deg, #808080, #d3d3d3);
     border: none;
     border-radius: 5px;
     cursor: pointer;
