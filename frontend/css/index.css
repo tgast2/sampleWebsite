@@ -38,15 +38,13 @@ body {
 
 /* Main Paragraph */
 #intro-text {
-    font-size: 1.5rem; /* Adjust font size for smaller screens */
+    font-size: 2rem;
     color: black;
-    position: relative; /* Use relative positioning instead of absolute */
-    margin: 0 auto; /* Center horizontally */
-    padding: 10px; /* Add padding for better spacing */
-    max-width: 90%; /* Prevent overflow on smaller screens */
-    text-align: center; /* Center-align the text */
-    line-height: 1.6; /* Improve readability */
-    word-wrap: break-word; /* Ensure text wraps correctly */
+    position: relative;
+    top: 150px;
+    padding: 10px;
+    text-align: center;
+    line-height: 1.6;
 }
 
 
