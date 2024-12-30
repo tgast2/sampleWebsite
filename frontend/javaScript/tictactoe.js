@@ -1,5 +1,9 @@
 document.addEventListener('DOMContentLoaded', fetchStats);
 
+document.addEventListener("DOMContentLoaded", () => {
+    board.classList.add("disabled");
+});
+
 const cells = document.querySelectorAll("[data-cell]");
 const board = document.querySelector(".board");
 const winningMessageText = document.getElementById("winningMessageText");
@@ -51,6 +55,9 @@ restartButton.addEventListener("click", () => {
 
     message.classList.remove("show");
 
+    // Reset board to disabled
+    board.classList.add("disabled");
+
     // Reset buttons
     xButton.classList.remove("selected");
     oButton.classList.remove("selected");
@@ -65,6 +72,7 @@ restartButton.addEventListener("click", () => {
     currentTurn = "x"; // Reset turn
     setBoardHoverClass();
 });
+
 
 
 // Choose Difficulty
@@ -104,7 +112,11 @@ function setDifficultySelection(selectedDifficulty) {
 
 function startGame(level) {
     levelDifficulty = level;
-    currentTurn = humanClass; // Ensure user starts first
+    currentTurn = humanClass; // Ensure the user starts first
+
+    // Enable the board
+    board.classList.remove("disabled");
+
     cells.forEach((cell) => {
         cell.classList.remove("x", "o");
         cell.removeEventListener("click", handleClick);
@@ -115,6 +127,7 @@ function startGame(level) {
     board.classList.remove("hidden");
     setBoardHoverClass();
 }
+
 
 function handleClick(e) {
     const cell = e.target;
